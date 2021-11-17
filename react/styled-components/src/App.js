@@ -1,8 +1,10 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import Card from "./components/Card";
 import Header from "./components/Header";
 import { Container } from "./components/styles/Container.styled";
 import GlobalStyles from "./components/styles/Global";
+import content from "./content";
 
 const theme = {
   colors: {
@@ -10,6 +12,7 @@ const theme = {
     body: "#fff",
     footer: "#003333",
   },
+  mobile: "768px",
 };
 
 const App = () => {
@@ -19,7 +22,9 @@ const App = () => {
         <GlobalStyles />
         <Header />
         <Container>
-          <h1>Hello World!</h1>
+          {content.map((item,index)=> (
+            <Card key={index} item={item} />
+          ))}
         </Container>
       </>
     </ThemeProvider>
